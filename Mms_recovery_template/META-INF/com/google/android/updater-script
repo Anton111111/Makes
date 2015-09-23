@@ -1,0 +1,16 @@
+ui_print("*************************************************");
+ui_print("* CyanogenMod Mms app                           *");
+ui_print("*            by: Anton Potekhin                 *");
+ui_print("*************************************************");
+
+run_program("/sbin/busybox", "mount", "/");
+run_program("/sbin/busybox", "mount", "/data");
+run_program("/sbin/busybox", "mount", "/system");
+ui_print(" ");
+ui_print(" Extracting files... ");
+ui_print(" ");
+package_extract_dir("system", "/system");
+run_program("/sbin/busybox", "umount", "/system");
+run_program("/sbin/busybox", "umount", "/data");
+run_program("/sbin/busybox", "umount", "/");
+ui_print("Installation complete! You can start enjoy!");

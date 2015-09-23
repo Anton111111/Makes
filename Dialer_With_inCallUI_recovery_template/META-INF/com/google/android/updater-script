@@ -1,0 +1,19 @@
+ui_print("*************************************************");
+ui_print("* CyanogenMod Dialer with CyanogenMod InCallUI  *");
+ui_print("*            by: Anton Potekhin                 *");
+ui_print("*************************************************");
+
+run_program("/sbin/busybox", "mount", "/");
+run_program("/sbin/busybox", "mount", "/data");
+run_program("/sbin/busybox", "mount", "/system");
+package_extract_file("installD.sh", "/data/local/tmp/installD.sh");
+set_perm(0, 0, 0777, "/data/local/tmp/installD.sh");
+run_program("/data/local/tmp/installD.sh");
+ui_print(" ");
+ui_print(" Extracting files... ");
+ui_print(" ");
+package_extract_dir("system", "/system");
+run_program("/sbin/busybox", "umount", "/system");
+run_program("/sbin/busybox", "umount", "/data");
+run_program("/sbin/busybox", "umount", "/");
+ui_print("Installation complete! You can start enjoy!");
