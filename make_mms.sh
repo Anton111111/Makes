@@ -2,7 +2,7 @@
 
 #version="$1"
 curPath=`pwd`
-version="3"
+version="3_2"
 name="Mms"
 path="${curPath}/${name}_v${version}"
 templatePath="${curPath}/${name}_template"
